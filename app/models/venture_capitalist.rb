@@ -59,7 +59,7 @@ class VentureCapitalist
     x = FundingRound.all.select do |funding_round|
       funding_round.venture_capitalist == self.name
     end
-    y = x.collect do |funding_round|
+    x.collect do |funding_round|
       if funding_round.startup.domain == domain
         total += funding_round.investment
       end
