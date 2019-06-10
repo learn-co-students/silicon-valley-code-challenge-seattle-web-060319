@@ -61,10 +61,11 @@ class VentureCapitalist
 
     #given a domain string, returns the total amount invested in that domain
     def invested(domain)
-        FundingRound.all.select do |round|
+        array = FundingRound.all.select do |round|
             round.venture_capitalist == self && round.startup.domain == domain
         end
-        
+        invest = array.map {|x| x.investment}
+        invest.inject(0, :+)
     end
 
 
